@@ -11,8 +11,8 @@
   <div class="container">
     <h1>URL Shrinker</h1>
     <form action="/url" method="POST" class="my-4 form-inline">
-      <label for="fullUrl" class="sr-only">Url</label>
-      <input required placeholder="Url" type="url" name="fullUrl" id="fullUrl" class="form-control col mr-2">
+      <label for="full" class="sr-only">Url</label>
+      <input required placeholder="Url" type="url" name="full" id="full" class="form-control col mr-2">
       <button class="btn btn-success" type="submit">Shrink</button>
     </form>
     
@@ -21,14 +21,13 @@
         <tr>
           <th>Full URL</th>
           <th>Short URL</th>
-          <th>Clicks</th>
         </tr>
       </thead>
       <tbody>
-        <% shorturls.forEach(shortUrl => { %>
+        <% shorturls.forEach(url => { %>
           <tr>
-            <td><a href="<%= shorturls.full %>"><%= shorturls.full %></a></td>
-            <td><a href="<%= shorturls.short %>"><%= shorturls.short %></a></td>
+            <td><a href="<%= url.full %>"><%= url.full %></a></td>
+            <td><a href="<%= url.short %>"><%= url.short %></a></td>
           </tr>
         <% }) %>
       </tbody>

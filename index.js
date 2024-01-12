@@ -25,7 +25,17 @@ app.post('/url', async function(req, res) {
     res.redirect('/');
 });
 
+app.get('/:url',async (req,res)=>{
+	console.log(req.params.url)
+	const short = await ShortUrl.findOne({short:req.params.url});
+	console.log(short)
+	if(short==null){
+		return res.sendStatus(404);
+	}
+	
+	res.redirect(short.full)
 
+});
 
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
